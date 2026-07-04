@@ -273,7 +273,7 @@ async function handleDownload() {
                 
                 // API 3: Last resort
                 try {
-                    const response3 = await fetch(`https://tikdown-api.vercel.app/api/download?url=${encodeURIComponent(url)}`);
+                    const response3 = await fetch(`https://video-tiktok.netlify.app/api/download?url=${encodeURIComponent(url)}`);
                     const data3 = await response3.json();
                     
                     if (data3.video) {
