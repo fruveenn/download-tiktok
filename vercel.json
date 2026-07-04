@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npm install",
+  "outputDirectory": ".",
+  "functions": {
+    "api/download.js": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/api/download", "destination": "/api/download.js" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
+}

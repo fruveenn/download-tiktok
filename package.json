@@ -1,0 +1,13 @@
+{
+  "name": "tiktok-downloader",
+  "version": "3.0.0",
+  "description": "TikTok Downloader Tanpa Watermark",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

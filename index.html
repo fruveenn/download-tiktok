@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TikTok Downloader Tanpa Watermark - Download Video TikTok HD Gratis">
+    <title>TikTok Downloader - Tanpa Watermark | Fruv3nn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="gradient-bg"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="logo-text">Tik<span class="gradient-text">Down</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#downloader" class="nav-link active">Downloader</a>
+                <a href="#features" class="nav-link">Fitur</a>
+                <a href="#howto" class="nav-link">Cara Pakai</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="downloader">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fadeInUp">
+                    Download Video TikTok
+                    <span class="gradient-text">Tanpa Watermark</span>
+                </h1>
+                <p class="hero-subtitle animate-fadeInUp delay-1">
+                    Download video TikTok favoritmu dengan kualitas HD tanpa watermark secara gratis!
+                </p>
+                
+                <div class="downloader-card animate-fadeInUp delay-2">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-link input-icon"></i>
+                                <input type="text" id="urlInput" class="url-input" placeholder="Tempel URL TikTok disini..." autocomplete="off">
+                                <button class="paste-btn" id="pasteBtn" title="Tempel dari clipboard">
+                                    <i class="fas fa-paste"></i>
+                                </button>
+                            </div>
+                            <button class="download-btn" id="downloadBtn">
+                                <span class="btn-text">Download</span>
+                                <span class="btn-icon"><i class="fas fa-download"></i></span>
+                                <div class="btn-loader"></div>
+                            </button>
+                        </div>
+                        <div class="example-urls">
+                            <span class="example-label">Contoh:</span>
+                            <button class="example-btn" data-url="https://www.tiktok.com/@tiktok/video/7106594211441904942">
+                                <i class="fab fa-tiktok"></i> Video TikTok
+                            </button>
+                            <button class="example-btn" data-url="https://vt.tiktok.com/ZSNs8hLqN/">
+                                <i class="fas fa-share"></i> Short Link
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                    <div class="loader-content">
+                        <div class="loader-spinner"></div>
+                        <p class="loader-text" id="loaderText">Mengambil video...</p>
+                        <div class="loader-steps">
+                            <div class="step active"><i class="fas fa-link"></i> Memproses URL</div>
+                            <div class="step"><i class="fas fa-search"></i> Mencari video</div>
+                            <div class="step"><i class="fas fa-download"></i> Menyiapkan download</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card" id="resultCard" style="display: none;">
+                    <div class="result-content">
+                        <div class="result-header">
+                            <h3><i class="fas fa-check-circle"></i> Video Ditemukan!</h3>
+                            <button class="close-btn" id="closeResult"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="video-preview">
+                            <video id="videoPlayer" controls playsinline>
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <div class="info-item">
+                                <i class="fas fa-user"></i>
+                                <span id="authorName">-</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-eye"></i>
+                                <span id="viewCount">-</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-heart"></i>
+                                <span id="likeCount">-</span>
+                            </div>
+                        </div>
+                        <div class="download-options">
+                            <a href="#" class="download-option-btn hd-btn" id="downloadHD" download>
+                                <i class="fas fa-download"></i>
+                                <span>Download HD</span>
+                                <small>720p</small>
+                            </a>
+                            <a href="#" class="download-option-btn sd-btn" id="downloadSD" download>
+                                <i class="fas fa-download"></i>
+                                <span>Download SD</span>
+                                <small>480p</small>
+                            </a>
+                            <a href="#" class="download-option-btn audio-btn" id="downloadAudio" download>
+                                <i class="fas fa-music"></i>
+                                <span>Download MP3</span>
+                                <small>Audio</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error-card" id="errorCard" style="display: none;">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Gagal Download!</h3>
+                        <p id="errorMessage">Coba lagi nanti.</p>
+                        <button class="retry-btn" id="retryBtn">Coba Lagi</button>
+                    </div>
+                </div>
+
+                <div class="stats-container animate-fadeInUp delay-3">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1000000">0</div>
+                        <div class="stat-label">Video Didownload</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500000">0</div>
+                        <div class="stat-label">Pengguna Puas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="99">0</div>
+                        <div class="stat-label">% Sukses Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-container">
+            <h2 class="section-title">Fitur <span class="gradient-text">Unggulan</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-ban"></i></div>
+                    <h3>Tanpa Watermark</h3>
+                    <p>Download video bersih tanpa watermark</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hd"></i></div>
+                    <h3>Kualitas HD</h3>
+                    <p>Resolusi HD 720p jernih</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Super Cepat</h3>
+                    <p>Download instan tanpa tunggu lama</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-music"></i></div>
+                    <h3>Download MP3</h3>
+                    <p>Ekstrak audio TikTok jadi MP3</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>100% Aman</h3>
+                    <p>Tidak perlu login atau registrasi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Support HP & Desktop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="howto" id="howto">
+        <div class="section-container">
+            <h2 class="section-title">Cara <span class="gradient-text">Pakai</span></h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fas fa-copy"></i></div>
+                    <h3>Copy URL</h3>
+                    <p>Buka TikTok, share video, dan copy link</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fas fa-paste"></i></div>
+                    <h3>Paste Link</h3>
+                    <p>Tempel link di kolom input</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fas fa-download"></i></div>
+                    <h3>Download</h3>
+                    <p>Klik download dan simpan video!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-tiktok"></i>
+                    <span>Tik<span class="gradient-text">Down</span></span>
+                </div>
+                <p class="footer-text">Dibuat oleh <span class="gradient-text">FRUV3NN</span> untuk <span class="gradient-text">PUBLIC</span></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TikDown. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
